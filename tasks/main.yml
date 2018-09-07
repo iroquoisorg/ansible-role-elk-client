@@ -1,0 +1,20 @@
+- name: Creates ELK Cert Directory
+  file:
+    path: /etc/beat
+    state: directory
+    mode: 0755
+
+- name: Instal CA cert
+  copy:
+    src: "{{ elk_ca_cert }}"
+    dest: "/etc/beat/ca.pem"
+
+- name: Install beat forwarder cert
+  copy:
+    src: "{{ elk_beat_forwarder_cert }}"
+    dest: "/etc/beat/beat-forwarder.crt"
+
+- name: Install forwarder key
+  copy:
+    src: "{{ elk_beat_forwarder_key }}"
+    dest: "/etc/beat/beat-forwarder.key"
