@@ -7,7 +7,7 @@
 - name: Instal CA cert
   copy:
     src: "{{ elk_ca_cert }}"
-    dest: "/etc/beat/ca.pem"
+    dest: "{{ elk_ca_cert_path }}"
 
 - name: Install beat forwarder cert
   copy:
